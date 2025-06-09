@@ -1,3 +1,3 @@
 export default function Navbar() {
-  return <div>Navbar</div>;
+  return <nav className='grid grid-cols-12 w-full'></nav>;
 }
