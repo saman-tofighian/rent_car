@@ -1,3 +1,5 @@
 export default function NavLeft() {
-  return <div>NavLeft</div>;
+  return <div><ul>
+    <li>test1</li>
+  </ul></div>;
 }
