@@ -2,6 +2,7 @@
 html,
 body {
   overflow-x: hidden;
+  direction: rtl;
 }
 body {
   width: 100%;
