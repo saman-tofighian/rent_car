@@ -31,7 +31,7 @@ export default function NavCenter() {
     },
   ]);
   return (
-    <div className='flex justify-center items-center col-span-8 h-full'>
+    <div className='hidden xl:flex justify-center items-center order-2 col-span-8 h-full'>
       <ul className='flex justify-center items-center gap-x-8 w-full h-full'>
         {links.map((item) => (
           <li key={item.id}>
