@@ -1,33 +1,22 @@
-'use client';
-
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { MdMenu } from 'react-icons/md';
-
 interface NavItem {
   href: string;
   label: string;
   className?: string;
 }
-
 const navItems: NavItem[] = [
   { href: '/', label: 'خانه' },
   { href: '/products', label: 'محصولات' },
   { href: '/about', label: 'درباره ما' },
   { href: '/contact', label: 'تماس با ما' },
-  {
-    href: '/login',
-    label: 'ورود / ثبت‌نام',
-    className: 'text-blue-600 hover:text-blue-800',
-  },
 ];
-
 export default function NavMobile() {
   const [isOpen, setIsOpen] = useState(false);
-
-  // جلوگیری از اسکرول صفحه هنگام باز بودن منو
+  const menuRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -38,8 +27,21 @@ export default function NavMobile() {
       document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
-
-  // انیمیشن‌های منو و لینک‌ها
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
   const menuVariants = {
     hidden: { x: '100%', opacity: 0 },
     visible: {
@@ -53,7 +55,6 @@ export default function NavMobile() {
       transition: { duration: 0.3, ease: 'easeInOut' },
     },
   };
-
   const linkVariants = {
     hidden: { opacity: 0, y: -120 },
     visible: (i: number) => ({
@@ -62,48 +63,39 @@ export default function NavMobile() {
       transition: { delay: i * 0.08, duration: 0.6, ease: 'easeOut' },
     }),
   };
-
   return (
     <div className='xl:hidden flex justify-center items-center order-1 col-span-2 h-full'>
-      {/* دکمه باز کردن منو */}
       <button
         onClick={() => setIsOpen(true)}
-        className='hover:bg-gray-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200'
+        className='hover:bg-gray-200 p-2 rounded-full transition-colors duration-200 cursor-pointer'
         aria-label='Open menu'
       >
         <MdMenu className='text-gray-900 text-3xl' />
       </button>
-
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* لایه مشکی پشت منو */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              onClick={() => setIsOpen(false)}
             />
-
-            {/* منوی کشویی */}
             <motion.div
+              ref={menuRef}
               variants={menuVariants}
               initial='hidden'
               animate='visible'
               exit='exit'
               className='top-0 right-0 z-50 fixed flex flex-col bg-gradient-to-b from-white to-gray-100 shadow-xl p-8 rounded-l-2xl w-3/5 max-w-sm h-screen'
             >
-              {/* دکمه بستن */}
               <button
                 onClick={() => setIsOpen(false)}
-                className='self-end hover:bg-gray-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200'
+                className='self-end hover:bg-gray-200 p-2 rounded-full transition-colors duration-200 cursor-pointer'
                 aria-label='Close menu'
               >
                 <IoMdClose className='text-gray-900 hover:text-red-600 text-3xl' />
               </button>
-
-              {/* لینک‌ها */}
               <nav className='flex flex-col gap-6 mt-6 font-semibold text-xl text-center'>
                 {navItems.map((item, index) => (
                   <motion.div
@@ -116,9 +108,7 @@ export default function NavMobile() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        item.className ?? 'text-gray-900 hover:text-gray-700'
-                      }`}
+                      className='block hover:bg-gray-200 px-4 py-3 rounded-lg hover:text-[#194BF0] transition-colors duration-500 cursor-pointer'
                     >
                       {item.label}
                     </Link>
