@@ -1,9 +1,11 @@
+import MottoCalender from './MottoCalender';
 import MottoRight from './MottoRight';
 
 export default function Motto() {
   return (
-    <section className='items-center grid grid-cols-12 bg-[url(/Img/motto.png)] bg-cover bg-no-repeat px-8 border h-[80vh] w[100vw]'>
+    <section className='relative grid grid-cols-12 bg-[url(/Img/motto.png)] bg-cover bg-no-repeat h-[80vh] overflow-visible'>
       <MottoRight />
+      <MottoCalender />
     </section>
   );
 }
