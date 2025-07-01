@@ -4,11 +4,11 @@ import { IoCarSportOutline } from 'react-icons/io5';
 
 export default function MottoRight() {
   return (
-    <div className='flex flex-col justify-center items-center col-span-7 h-full text-center'>
-      <h1 className='font-bold text-[#FDB713] text-[44px]'>
+    <div className='flex flex-col justify-center items-center col-span-12 xl:col-span-7 px-[6%] xl:px-0 h-full text-center'>
+      <h1 className='font-bold text-[#FDB713] text-[37px] xl:text-[44px]'>
         اُتـــو رِنت؛ سریع، آسان و به صرفه
       </h1>
-      <p className='mt-4 text-[#F9F9F9] text-[20px]'>
+      <p className='mt-4 text-[#F9F9F9] text-[18px] xl:text-[20px]'>
         سرویس دهنده رزرو خودرو در ایران در کمترین زمان ممکن!
       </p>
       <div className='flex justify-center gap-x-8 mt-10 w-full'>
