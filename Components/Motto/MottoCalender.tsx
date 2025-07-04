@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { BiSearch } from 'react-icons/bi';
 import { BsArrowLeftCircle } from 'react-icons/bs';
-
 export default function MottoCalender() {
   return (
     <div className='-bottom-[260px] xl:-bottom-30 left-1/2 z-30 absolute bg-white shadow px-8 py-10 border border-white rounded-2xl w-[90%] max-w-7xl -translate-x-1/2'>
