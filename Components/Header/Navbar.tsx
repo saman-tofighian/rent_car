@@ -5,7 +5,7 @@ import NavMobile from './NavMobile';
 import NavRight from './NavRight';
 
 export default function Navbar() {
-  const [isScroll, setIsScroll]: boolean = useState(false);
+  const [isScroll, setIsScroll] = useState<boolean>(false);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
