@@ -1,8 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, easeInOut, easeOut, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { MdMenu } from 'react-icons/md';
+
 interface NavItem {
   href: string;
   label: string;
@@ -47,12 +48,12 @@ export default function NavMobile() {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.4, ease: 'easeInOut' },
+      transition: { duration: 0.4, ease: easeInOut },
     },
     exit: {
       x: '100%',
       opacity: 0,
-      transition: { duration: 0.3, ease: 'easeInOut' },
+      transition: { duration: 0.3, ease: easeInOut },
     },
   };
   const linkVariants = {
@@ -60,7 +61,7 @@ export default function NavMobile() {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.08, duration: 0.6, ease: 'easeOut' },
+      transition: { delay: i * 0.08, duration: 0.6, ease: easeOut },
     }),
   };
   return (
