@@ -25,6 +25,20 @@ export default function Brand() {
       perView: 6,
       spacing: 15,
     },
+    breakpoints: {
+      '(max-width: 992px)': {
+        slides: {
+          perView: 4,
+          spacing: 10,
+        },
+      },
+      '(max-width: 640px)': {
+        slides: {
+          perView: 3,
+          spacing: 8,
+        },
+      },
+    },
   });
 
   useEffect(() => {
@@ -34,7 +48,7 @@ export default function Brand() {
     return () => clearInterval(interval);
   }, [slider]);
   return (
-    <section className='mt-[12rem] mb-14 w-full'>
+    <section className='mt-[19rem] sm:mt-[16rem] lg:mt-[12rem] mb-14 w-full'>
       <div className='keen-slider' ref={sliderRef}>
         {logos.map((logo, idx) => (
           <div
