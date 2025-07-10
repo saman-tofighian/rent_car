@@ -3,6 +3,7 @@ html,
 body {
   overflow-x: hidden;
   direction: rtl;
+  user-select: none;
 }
 body {
   width: 100%;
