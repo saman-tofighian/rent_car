@@ -1,6 +1,8 @@
+import MottoCard from './MottoCard';
+
 export default function MottoChild() {
   return (
-    <div className='bg-[#000000a0] bg-[url(/Img/motto2.jpg)] bg-blend-multiply bg-cover bg-no-repeat xl:bg-center mb-7 rounded-2xl w-full xl:w-4/5 h-[80vh] xl:h-[35vh] text-center'>
+    <div className='relative bg-[#000000a0] bg-[url(/Img/motto2.jpg)] bg-blend-multiply bg-cover bg-no-repeat xl:bg-center mb-7 rounded-2xl w-full xl:w-4/5 h-[80vh] xl:h-[35vh] text-center'>
       <h2 className='mt-12 font-bold text-[#FDB713] text-3xl'>
         چــــــرا اُتو رِنت؟
       </h2>
@@ -11,6 +13,9 @@ export default function MottoChild() {
         خودروی شما مطمئن نیست، می‌توانید از سوییچ، خودروی مناسب خود را کرایه
         کرده و با آسودگی به سفر بروید.
       </p>
+      <div className='-bottom-28 absolute -mt-36 w-full'>
+        <MottoCard />
+      </div>
     </div>
   );
 }
