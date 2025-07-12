@@ -30,11 +30,11 @@ export default function MottoCard() {
     },
   ];
   return (
-    <div className='gap-x-10 grid grid-cols-12 px-10 w-full'>
+    <div className='gap-y-7 xl:gap-x-10 xl:gap-y-0 grid grid-cols-12 px-10 w-full'>
       {data.map((item) => (
         <div
           key={item.id}
-          className='col-span-4 bg-white shadow hover:shadow-2xl px-6 py-5 border border-[#D7D7D7] rounded-2xl duration-500 ease-linear'
+          className='col-span-full xl:col-span-4 bg-white shadow hover:shadow-2xl px-6 py-5 border border-[#D7D7D7] rounded-2xl duration-500 ease-linear'
         >
           <div className='flex justify-center w-full'>
             <span className='flex justify-center items-center p-3 border rounded-[12px] w-[68px] h-[68px]'>
