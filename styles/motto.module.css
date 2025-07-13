@@ -1,0 +1,5 @@
+@media (min-width: 1680px) {
+  .section {
+    height: 35vh !important;
+  }
+}

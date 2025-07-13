@@ -8,8 +8,9 @@ type dataType = {
   title: string;
   desc: string;
 };
+
 export default function MottoCard() {
-  const data: dataType = [
+  const data: dataType[] = [
     {
       id: 1,
       icon: <FaBoxOpen color='#194BF0' size='2rem' />,
@@ -29,20 +30,23 @@ export default function MottoCard() {
       desc: 'هدف ما، ارائه بهترین خدمات با مناسب ترین قیمت ممکن است.',
     },
   ];
+
   return (
-    <div className='gap-y-7 xl:gap-x-10 xl:gap-y-0 grid grid-cols-12 px-10 w-full'>
+    <div className='gap-y-7 md:gap-x-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-5 md:px-10 w-full'>
       {data.map((item) => (
         <div
           key={item.id}
-          className='col-span-full xl:col-span-4 bg-white shadow hover:shadow-2xl px-6 py-5 border border-[#D7D7D7] rounded-2xl duration-500 ease-linear'
+          className='bg-white shadow hover:shadow-2xl px-6 py-5 border border-[#D7D7D7] rounded-2xl duration-500 ease-linear'
         >
           <div className='flex justify-center w-full'>
             <span className='flex justify-center items-center p-3 border rounded-[12px] w-[68px] h-[68px]'>
               {item.icon}
             </span>
           </div>
-          <h3 className='mt-2.5 font-bold text-[18px]'>{item.title}</h3>
-          <p className='mt-3 px-3 font-medium text-[#757575] text-[12px] leading-6'>
+          <h3 className='mt-2.5 font-bold text-[18px] text-center'>
+            {item.title}
+          </h3>
+          <p className='mt-3 px-3 font-medium text-[#757575] text-[12px] text-center leading-6'>
             {item.desc}
           </p>
         </div>
