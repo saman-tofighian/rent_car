@@ -3,6 +3,7 @@ import Cars from '@/Components/Cars/Cars';
 import Header from '@/Components/Header/Header';
 import Motto from '@/Components/Motto/Motto';
 import MottoParent from '@/Components/Motto2/MottoParent';
+import Products from '@/Components/products/Products';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Brand />
       <MottoParent />
       <Cars />
+      <Products />
     </main>
   );
 }

@@ -36,10 +36,10 @@ export default function Cars() {
   ];
   return (
     <section className='mt-1 xl:mt-[11rem] mb-16 px-8 w-full'>
-      <div className='gap-y-9 xl:gap-x-5 xl:gap-y-0 grid grid-cols-12 xl:grid-cols-10 xl:mx-auto w-full xl:w-fit'>
+      <div className='gap-y-9 md:gap-x-8 xl:gap-x-5 xl:gap-y-0 grid grid-cols-12 xl:grid-cols-10 xl:mx-auto w-full xl:w-fit'>
         {Cars.map((item) => (
           <div
-            className='col-span-12 xl:col-span-2 bg-white shadow border border-[#D7D7D7] rounded-2xl overflow-hidden'
+            className='col-span-12 md:col-span-6 xl:col-span-2 bg-white shadow hover:shadow-2xl border border-[#D7D7D7] rounded-2xl overflow-hidden duration-500 ease-linear'
             key={item.id}
           >
             <div className='mt-4'>
