@@ -1,4 +1,10 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Vazirmatn:wght@100..900&display=swap');
+* {
+  box-sizing: border-box;
+  font-family: 'Vazirmatn', sans-serif;
+  font-optical-sizing: auto;
+}
 html,
 body {
   overflow-x: hidden;
