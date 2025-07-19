@@ -73,7 +73,7 @@ export default function Products() {
         </p>
       </div>
       <div className='grid grid-cols-12 mt-7 w-full'>
-        <div className='flex justify-end items-center gap-x-3.5 col-span-7'>
+        <div className='flex justify-center xl:justify-end items-center gap-x-3.5 col-span-12 xl:col-span-7'>
           <button className='bg-[#194BF0] px-4 py-2 rounded-[8px] text-white cursor-pointer'>
             پرطرفدار
           </button>
@@ -84,10 +84,10 @@ export default function Products() {
             پیشنهادی
           </button>
         </div>
-        <div className='flex justify-end items-center col-span-4'>
+        <div className='hidden xl:flex justify-end items-center col-span-4'>
           <Link
             href='/products'
-            className='flex justify-center items-center gap-x-2.5 font-bold text-[#194BF0]'
+            className='flex justify-center items-center gap-x-2.5 hover:gap-x-4 font-bold text-[#194BF0] duration-500 ease-linear'
           >
             مشاهده همه
             <FaAngleLeft className='mt-1' size='1.2rem' />
@@ -96,7 +96,7 @@ export default function Products() {
       </div>
       <div className='gap-8 grid grid-cols-12 mt-8 px-[6%] w-full'>
         {Products.map((item) => (
-          <div className='col-span-4 bg-[#FFFFFF] shadow p-4 border border-[#D7D7D7] rounded-2xl'>
+          <div className='col-span-12 sm:col-span-10 md:col-span-6 xl:col-span-4 sm:col-start-2 bg-[#FFFFFF] shadow p-4 border border-[#D7D7D7] rounded-2xl'>
             <figure className='flex justify-center p-2 border border-[#F3F3F3] rounded-[12px] w-full'>
               <Image
                 src={item.image}
