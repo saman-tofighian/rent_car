@@ -72,7 +72,7 @@ export default function MottoCalender() {
               <div className='grow'>
                 <input type='time' />
               </div>
-              <div className='mt-3.5 lg:mt-0 lg:pr-9 w-full lg:w-fit'>
+              <div className='mt-3.5 lg:mt-0 lg:pr-10 w-full lg:w-fit'>
                 <button className='bg-[#FDB713] p-4 rounded-[16px] text-white cursor-pointer'>
                   <BiSearch />
                 </button>
