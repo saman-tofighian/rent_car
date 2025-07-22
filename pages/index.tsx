@@ -4,6 +4,7 @@ import Header from '@/Components/Header/Header';
 import Motto from '@/Components/Motto/Motto';
 import MottoParent from '@/Components/Motto2/MottoParent';
 import Products from '@/Components/products/Products';
+import Questions from '@/Components/Q&A/Q&A';
 import Reservation from '@/Components/Reservation/Reservation';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Cars />
       <Products />
       <Reservation />
+      <Questions />
     </main>
   );
 }
