@@ -1,5 +1,4 @@
 import Image from 'next/image';
-
 export default function Questions() {
   return (
     <section className='my-28 px-8 w-full'>
@@ -11,15 +10,15 @@ export default function Questions() {
           سؤالات <strong className='text-[#D79C10]'>متداول</strong>
         </p>
       </div>
-      <div className='grid grid-cols-12 mt-10 px-[6%] w-full'>
-        <div className='flex flex-col justify-center col-span-7'>
+      <div className='gap-y-10 xl:gap-y-0 grid grid-cols-12 mt-10 xl:px-[6%] w-full'>
+        <div className='flex flex-col xl:justify-center col-span-12 xl:col-span-7'>
           <div className='w-full'>
             <div className='space-y-4'>
               <details
-                className='group bg-white shadow px-4 py-6 border border-[#D7D7D7] rounded-[16px]'
+                className='group bg-white shadow p-4 border border-[#D7D7D7] rounded-[16px]'
                 open
               >
-                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-6 py-4 rounded-lg font-medium text-secondary-900 text-lg cursor-pointer list-none'>
+                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-4 sm:px-6 py-3 rounded-lg font-medium text-secondary-900 text-base sm:text-lg cursor-pointer list-none'>
                   در صورت بروز نقص فنی برای خودرو چه اتفاقی می افتد؟
                   <div className='text-secondary-500'>
                     <svg
@@ -52,14 +51,14 @@ export default function Questions() {
                     </svg>
                   </div>
                 </summary>
-                <div className='px-6 pb-4 text-[#727272]'>
+                <div className='px-4 sm:px-6 pb-4 text-[#727272] text-sm sm:text-base leading-relaxed'>
                   در صورت بروز نقص فنی برای خودرو، تیم پشتیبانی ما به سرعت اقدام
                   به رفع مشکل می‌کند. شما می‌توانید با تماس با شماره پشتیبانی یا
                   از طریق اپلیکیشن، درخواست کمک کنید.
                 </div>
               </details>
-              <details className='group bg-white shadow px-4 py-6 border border-[#D7D7D7] rounded-[16px]'>
-                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-6 py-4 rounded-lg font-medium text-secondary-900 text-lg cursor-pointer list-none'>
+              <details className='group bg-white shadow p-4 border border-[#D7D7D7] rounded-[16px]'>
+                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-4 sm:px-6 py-3 rounded-lg font-medium text-secondary-900 text-base sm:text-lg cursor-pointer list-none'>
                   هزینه بنزین و کارواش در خودروهای اجاره ای به عهده کیست؟
                   <div className='text-secondary-500'>
                     <svg
@@ -92,15 +91,15 @@ export default function Questions() {
                     </svg>
                   </div>
                 </summary>
-                <div className='px-6 pb-4 text-[#727272]'>
+                <div className='px-4 sm:px-6 pb-4 text-[#727272] text-sm sm:text-base leading-relaxed'>
                   در زمان اجاره خودرو بدون راننده خودروها کارواش شده و با باک
                   بنزین پر تحویل مشتریان عزیز می گردد. در زمان استرداد خودرو در
                   صورتی که خودرو به کارواش نیاز داشته و یا خودرو دارای کسر سوخت
                   باشد هزینه آن بر عهده مشتری می باشد.
                 </div>
               </details>
-              <details className='group bg-white shadow px-4 py-6 border border-[#D7D7D7] rounded-[16px]'>
-                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-6 py-4 rounded-lg font-medium text-secondary-900 text-lg cursor-pointer list-none'>
+              <details className='group bg-white shadow p-4 border border-[#D7D7D7] rounded-[16px]'>
+                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-4 sm:px-6 py-3 rounded-lg font-medium text-secondary-900 text-base sm:text-lg cursor-pointer list-none'>
                   آیا ماشین های اتورنت دارای بیمه هستند؟
                   <div className='text-secondary-500'>
                     <svg
@@ -133,14 +132,14 @@ export default function Questions() {
                     </svg>
                   </div>
                 </summary>
-                <div className='px-6 pb-4 text-[#727272]'>
+                <div className='px-4 sm:px-6 pb-4 text-[#727272] text-sm sm:text-base leading-relaxed'>
                   بله، تمامی خودروهای اجاره ای اتورنت دارای بیمه شخص ثالث و بدنه
                   هستند. در صورت بروز حادثه، شما می‌توانید با تیم پشتیبانی تماس
                   بگیرید تا راهنمایی‌های لازم را دریافت کنید.
                 </div>
               </details>
-              <details className='group bg-white shadow px-4 py-6 border border-[#D7D7D7] rounded-[16px]'>
-                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-6 py-4 rounded-lg font-medium text-secondary-900 text-lg cursor-pointer list-none'>
+              <details className='group bg-white shadow p-4 border border-[#D7D7D7] rounded-[16px]'>
+                <summary className='flex justify-between items-center hover:bg-[#FFFFFF] px-4 sm:px-6 py-3 rounded-lg font-medium text-secondary-900 text-base sm:text-lg cursor-pointer list-none'>
                   محدودیت کیلومتر در اجاره خودرو چقدر می باشد؟
                   <div className='text-secondary-500'>
                     <svg
@@ -173,7 +172,7 @@ export default function Questions() {
                     </svg>
                   </div>
                 </summary>
-                <div className='px-6 pb-4 text-[#727272]'>
+                <div className='px-4 sm:px-6 pb-4 text-[#727272] text-sm sm:text-base leading-relaxed'>
                   محدودیت کیلومتر در اجاره خودروهای بدون راننده معمولاً 250
                   کیلومتر در روز است. در صورت نیاز به کیلومتر بیشتر، می‌توانید
                   با تیم پشتیبانی تماس بگیرید تا شرایط و هزینه‌های اضافی را
@@ -183,11 +182,11 @@ export default function Questions() {
             </div>
           </div>
         </div>
-        <figure className='flex justify-center col-span-5'>
+        <figure className='flex justify-center col-span-12 xl:col-span-5'>
           <Image
             src='/Img/question.png'
             width={342}
-            height={359}
+            height={259}
             alt='Q&A image'
             className='rounded-2xl'
           />
