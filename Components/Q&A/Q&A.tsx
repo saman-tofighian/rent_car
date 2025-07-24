@@ -10,7 +10,7 @@ export default function Questions() {
           سؤالات <strong className='text-[#D79C10]'>متداول</strong>
         </p>
       </div>
-      <div className='gap-y-10 xl:gap-y-0 grid grid-cols-12 mt-10 xl:px-[6%] w-full'>
+      <div className='gap-y-10 xl:gap-y-0 grid grid-cols-12 mt-10 md:px-[6%] w-full'>
         <div className='flex flex-col xl:justify-center col-span-12 xl:col-span-7'>
           <div className='w-full'>
             <div className='space-y-4'>
