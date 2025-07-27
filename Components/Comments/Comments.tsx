@@ -23,35 +23,35 @@ const comments: CommentItem[] = [
     avatar: '/img/c1.jpg',
     date: '27 دی ماه 1380',
     rating: '/img/star.png',
-    text: `اولین بار بود که برای مسافرت ماشین اجاره می‌کردم و به دنبال یک شرکت با سابقه و مطمئن می‌گشتم! بدون هیچ شکی میگم، اتو رنت تو کار خودش بهترینه! پشتیبانی عالی، هزینه بسیار مناسب، آسان بودن روند اجاره و رزرو؛ هرچی بگم کم گفتم! حتماً دفعه بعد هم برای اجاره ماشین به سراغشون میام.`,
+    text: 'اولین بار بود که برای مسافرت ماشین اجاره می‌کردم و به دنبال یک شرکت با سابقه و مطمئن می‌گشتم! بدون هیچ شکی میگم، اتو رنت تو کار خودش بهترینه! پشتیبانی عالی، هزینه بسیار مناسب، آسان بودن روند اجاره و رزرو؛ هرچی بگم کم گفتم! حتماً دفعه بعد هم برای اجاره ماشین به سراغشون میام.',
   },
   {
     id: 2,
-    name: 'نیلوفر کاظمی',
+    name: 'محمدجواد امینی',
     avatar: '/img/c2.jpg',
-    date: '12 فروردین 1402',
+    date: '27 دی ماه 1399',
     rating: '/img/star.png',
-    text: `همه چیز خیلی سریع و دقیق انجام شد...`,
+    text: 'اجاره ماشین از اتو رنت بهترین تصمیمی بود که برای سفرم گرفتم. پشتیبانی 24 ساعته و قیمت‌های منصفانه باعث شد تجربه‌ای بی‌نظیر داشته باشم.',
   },
   {
     id: 3,
-    name: 'محمدرضا افشاری',
+    name: 'فرزانه حیدری',
     avatar: '/img/c3.jpg',
-    date: '5 شهریور 1401',
+    date: '27 دی ماه 1380',
     rating: '/img/star.png',
-    text: `من به همه دوستام توصیه کردم...`,
+    text: 'واقعا از کیفیت خدمات اتو رنت راضی بودم. فرآیند رزرو آنلاین خیلی ساده بود و ماشین دقیقا همون چیزی بود که انتظار داشتم. ممنون از تیم حرفه‌ایشون!',
   },
   {
     id: 4,
-    name: 'لیلا عباسی',
+    name: 'فاطمه ابراهیمی‌فر',
     avatar: '/img/c4.jpg',
-    date: '9 آبان 1399',
+    date: '27 دی ماه 1380',
     rating: '/img/star.png',
-    text: `یه تجربه فوق‌العاده...`,
+    text: 'تجربه بسیار خوبی از اجاره خودرو با اتو رنت داشتم. خدمات حرفه‌ای، ماشین تمیز و پشتیبانی سریع باعث شد که سفرم خیلی راحت‌تر بشه. حتما دوباره ازشون استفاده می‌کنم!',
   },
 ];
 
-// Plugin با قابلیت تعیین index فعال
+// Plugin for thumbnail with active index and RTL support
 function ThumbnailPluginWithActiveIndex(
   mainRef: MutableRefObject<KeenSliderInstance | null>,
   setActiveIndex: (idx: number) => void
@@ -82,6 +82,7 @@ export default function Comments() {
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
+    rtl: true,
     created(slider) {
       mainSliderRef.current = slider;
     },
@@ -90,65 +91,83 @@ export default function Comments() {
   const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: false,
+      rtl: true,
       slides: {
         perView: 4,
         spacing: 10,
+        // Responsive settings for thumbnails
+        number: comments.length,
+      },
+      breakpoints: {
+        '(max-width: 1024px)': {
+          slides: { perView: 3, spacing: 8 },
+        },
+        '(max-width: 768px)': {
+          slides: { perView: 2, spacing: 6 },
+        },
+        '(max-width: 480px)': {
+          slides: { perView: 1, spacing: 4 },
+        },
       },
     },
     [ThumbnailPluginWithActiveIndex(mainSliderRef, setActiveThumb)]
   );
 
   return (
-    <section className='my-24 px-8 w-full'>
-      <div className='mb-12 text-center'>
-        <h3 className='font-extralight text-[#5E5E5E] text-[20px]'>
+    <section
+      className='my-12 sm:my-16 md:my-24 px-4 sm:px-6 md:px-8 w-full'
+      dir='rtl'
+    >
+      <div className='mb-8 sm:mb-10 md:mb-12 text-center'>
+        <h3 className='font-extralight text-[#5E5E5E] text-base sm:text-lg md:text-xl'>
           آنچه مشتریان ما درموردمان گفته‌اند.
         </h3>
-        <p className='mt-2.5 font-bold text-[#353535] text-[34px]'>
+        <p className='mt-2 sm:mt-2.5 font-bold text-[#353535] md:text-[34px] text-2xl sm:text-3xl'>
           نظرات <strong className='text-[#D79C10]'>مشتریان</strong>
         </p>
       </div>
 
-      <div className='px-[6%] w-full'>
-        {/* اسلایدر اصلی */}
-        <div ref={sliderRef} className='mb-6 keen-slider'>
+      <div className='px-0 sm:px-[4%] md:px-[6%] w-full'>
+        <div ref={sliderRef} className='mb-4 sm:mb-5 md:mb-6 keen-slider'>
           {comments.map((comment) => (
             <div
               key={comment.id}
-              className='flex flex-col items-center bg-white shadow px-6 py-4 border border-[#D7D7D7] rounded-[16px] h-96 keen-slider__slide'
+              className='flex flex-col items-center bg-white shadow px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 border border-[#D7D7D7] rounded-2xl h-80 sm:h-88 md:h-96 keen-slider__slide'
             >
-              <figure className='flex justify-center mt-5 w-full'>
+              <figure className='flex justify-center mt-3 sm:mt-4 md:mt-8 w-full'>
                 <Image
                   src={comment.avatar}
                   alt={comment.name}
-                  width={136}
-                  height={136}
+                  width={100}
+                  height={100}
+                  sizes='(max-width: 768px) 80px, (max-width: 1024px) 100px, 136px'
                   className='border-[#194BF0] border-4 rounded-full'
                 />
               </figure>
-              <h5 className='mt-4 font-medium text-[16px] text-black'>
+              <h5 className='mt-2 sm:mt-3 md:mt-4 font-medium text-black md:text-[16px] text-sm sm:text-base'>
                 {comment.name}
               </h5>
               <Image
                 src={comment.rating}
                 alt='rating'
-                width={136}
-                height={24}
-                className='mt-2'
+                width={100}
+                height={18}
+                sizes='(max-width: 768px) 80px, (max-width: 1024px) 100px, 136px'
+                className='mt-1 sm:mt-1.5 md:mt-2'
               />
-              <p className='mt-4 max-w-[90%] md:max-w-[37%] text-[#727272] text-[14px] text-justify leading-7'>
+              <p className='mt-2 sm:mt-3 md:mt-4 max-w-[95%] sm:max-w-[90%] xl:max-w-[37%] text-[#727272] md:text-[14px] text-xs sm:text-sm text-justify leading-6 sm:leading-7'>
                 {comment.text}
               </p>
             </div>
           ))}
         </div>
 
-        {/* thumbnailها */}
-        <div ref={thumbnailRef} className='keen-slider'>
+        {/* Thumbnails */}
+        <div ref={thumbnailRef} className='flex keen-slider'>
           {comments.map((comment, idx) => (
             <div
               key={comment.id}
-              className={`keen-slider__slide cursor-pointer transition-all duration-300 flex items-center rounded-[16px] py-4 border justify-evenly
+              className={`keen-slider__slide cursor-pointer transition-all duration-300 flex items-center rounded-2xl py-2 sm:py-3 md:py-4 border justify-evenly 
               ${
                 activeThumb === idx
                   ? 'bg-[#FDB713] border-[#FDB713] shadow-md'
@@ -159,16 +178,18 @@ export default function Comments() {
                 <Image
                   src={comment.avatar}
                   alt={comment.name}
-                  width={64}
-                  height={64}
+                  width={62}
+                  height={62}
+                  sizes='(max-width: 768px) 40px, (max-width: 1024px) 48px, 64px'
+                  layout='responsive'
                   className='rounded-full'
                 />
               </div>
               <div>
-                <h6 className='font-semibold text-[#212121] text-[15px]'>
+                <h6 className='font-semibold text-[#212121] md:text-[15px] text-xs sm:text-sm'>
                   {comment.name}
                 </h6>
-                <span className='font-light text-[#494949] text-[12px]'>
+                <span className='font-light text-[#494949] text-[10px] md:text-[12px] sm:text-xs'>
                   {comment.date}
                 </span>
               </div>
