@@ -1,3 +1,4 @@
+import Blog from '@/Components/blogs/Blog';
 import Brand from '@/Components/Brands/Brand';
 import Cars from '@/Components/Cars/Cars';
 import Comments from '@/Components/Comments/Comments';
@@ -25,6 +26,7 @@ export default function Home() {
         <Reservation />
         <Questions />
         <Comments />
+        <Blog />
       </main>
     </>
   );

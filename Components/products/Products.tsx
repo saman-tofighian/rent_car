@@ -89,7 +89,7 @@ export default function Products() {
             href='/products'
             className='flex justify-center items-center gap-x-2.5 hover:gap-x-4 font-bold text-[#194BF0] duration-500 ease-linear'
           >
-            مشاهده همه
+            <span className='mt-1.5'>مشاهده همه</span>
             <FaAngleLeft className='mt-1' size='1.2rem' />
           </Link>
         </div>
