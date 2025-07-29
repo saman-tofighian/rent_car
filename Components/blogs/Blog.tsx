@@ -17,7 +17,7 @@ interface IBlogCard {
 }
 
 export default function Blog() {
-  const blog: IBlogCard = [
+  const blog: IBlogCard[] = [
     {
       id: 1,
       img: '/img/b1.jpg',

@@ -12,7 +12,7 @@ interface IProducts {
 }
 
 export default function Products() {
-  const Products: IProducts = [
+  const Products: IProducts[] = [
     {
       id: 1,
       image: '/img/p1.jpg',
