@@ -2,6 +2,7 @@ import Blog from '@/Components/blogs/Blog';
 import Brand from '@/Components/Brands/Brand';
 import Cars from '@/Components/Cars/Cars';
 import Comments from '@/Components/Comments/Comments';
+import Footer from '@/Components/footer/Footer';
 import Header from '@/Components/Header/Header';
 import Motto from '@/Components/Motto/Motto';
 import MottoParent from '@/Components/Motto2/MottoParent';
@@ -27,6 +28,7 @@ export default function Home() {
         <Questions />
         <Comments />
         <Blog />
+        <Footer />
       </main>
     </>
   );
