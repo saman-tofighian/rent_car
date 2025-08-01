@@ -15,7 +15,7 @@ export default function Products() {
   const Products: IProducts[] = [
     {
       id: 1,
-      image: '/img/p1.jpg',
+      image: '/Img/p1.jpg',
       title: 'اجاره بنز E350 سدان',
       model: '2016',
       dailyPrice: 8500000,
@@ -23,7 +23,7 @@ export default function Products() {
     },
     {
       id: 2,
-      image: '/img/p2.jpg',
+      image: '/Img/p2.jpg',
       title: 'اجاره تویوتا لندکروز در تهران 2013',
       model: '2018',
       dailyPrice: 6000000,
@@ -31,7 +31,7 @@ export default function Products() {
     },
     {
       id: 3,
-      image: '/img/p3.jpg',
+      image: '/Img/p3.jpg',
       title: 'اجاره جنسیس کوپه',
       model: '2020',
       dailyPrice: 7000000,
@@ -39,7 +39,7 @@ export default function Products() {
     },
     {
       id: 4,
-      image: '/img/p4.jpg',
+      image: '/Img/p4.jpg',
       title: 'اجاره بی ام و 528',
       model: '2019',
       dailyPrice: 7500000,
@@ -47,7 +47,7 @@ export default function Products() {
     },
     {
       id: 5,
-      image: '/img/p5.jpg',
+      image: '/Img/p5.jpg',
       title: 'اجاره هیوندای توسان 2014',
       model: '2021',
       dailyPrice: 5000000,
@@ -55,7 +55,7 @@ export default function Products() {
     },
     {
       id: 6,
-      image: '/img/p6.jpg',
+      image: '/Img/p6.jpg',
       title: 'اجاره مازراتی گرن توریسمو',
       model: '2017',
       dailyPrice: 5500000,

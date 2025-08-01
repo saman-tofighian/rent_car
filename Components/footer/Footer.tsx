@@ -2,14 +2,11 @@ import Image from 'next/image';
 import { FaRoad } from 'react-icons/fa';
 import { IoMailSharp } from 'react-icons/io5';
 import { LiaPhoneVolumeSolid } from 'react-icons/lia';
-
 export default function Footer() {
   return (
     <section className='my-8 px-[8%] w-full'>
       <div className='gap-y-8 grid grid-cols-1 md:grid-cols-12 bg-[#1E1E1EE5] px-6 md:px-12 py-10 md:py-14 rounded-2xl w-full'>
-        {/* ردیف اطلاعات تماس */}
         <div className='flex lg:flex-row flex-col justify-around items-start lg:items-center gap-6 col-span-12 p-4 border border-[#868686] rounded-2xl'>
-          {/* ارتباط با ما */}
           <div className='flex items-center gap-x-4'>
             <span className='flex justify-center items-center p-3 border border-white rounded-[12px]'>
               <LiaPhoneVolumeSolid color='white' size='1.5rem' />
@@ -23,10 +20,7 @@ export default function Footer() {
               </span>
             </div>
           </div>
-
           <span className='hidden lg:flex border border-[#868686] h-[40px]'></span>
-
-          {/* ایمیل */}
           <div className='flex items-center gap-x-4'>
             <span className='flex justify-center items-center p-3 border border-white rounded-[12px]'>
               <IoMailSharp color='white' size='1.5rem' />
@@ -40,10 +34,7 @@ export default function Footer() {
               </span>
             </div>
           </div>
-
           <span className='hidden lg:flex border border-[#868686] h-[40px]'></span>
-
-          {/* آدرس */}
           <div className='flex items-center gap-x-4'>
             <span className='flex justify-center items-center p-3 border border-white rounded-[12px]'>
               <FaRoad color='white' size='1.5rem' />
@@ -58,8 +49,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* لوگو و توضیحات */}
         <div className='col-span-12 md:col-span-7 lg:col-span-4 lg:mt-3'>
           <figure className='w-full'>
             <Image src='/Img/footer.png' alt='لوگو' width={151} height={59} />
@@ -70,8 +59,6 @@ export default function Footer() {
             سراسر کشور ایران آماده خدمت‌رسانی به مشتریان است.
           </p>
         </div>
-
-        {/* منو دسترسی‌ها */}
         <div className='col-span-12 md:col-span-5 lg:col-span-3'>
           <ul className='flex flex-col justify-start md:items-center w-full h-full'>
             <li className='mt-4 font-medium text-white'>دسترسی آسان</li>
@@ -80,8 +67,6 @@ export default function Footer() {
             <li className='mt-4 font-medium text-white'>درباره ما</li>
           </ul>
         </div>
-
-        {/* خبرنامه */}
         <div className='flex flex-col justify-start col-span-12 lg:col-span-5 lg:mt-3'>
           <h6 className='mb-3 font-semibold text-[16px] text-white'>خبرنامه</h6>
           <div className='flex sm:flex-row flex-col border border-[#F6F6F6] rounded-[6px] w-full max-w-[400px] overflow-hidden'>
@@ -95,8 +80,6 @@ export default function Footer() {
             </button>
           </div>
         </div>
-
-        {/* کپی‌رایت */}
         <div className='flex justify-center items-center col-span-12 mt-10 pt-4 border-[#868686] border-t h-full text-center'>
           <p className='text-[#919191] text-sm'>
             © تمامی حقوق این وب‌سایت متعلق به{' '}

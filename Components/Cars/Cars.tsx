@@ -11,27 +11,27 @@ export default function Cars() {
     {
       id: 1,
       title: 'کوپه',
-      img: '/img/cope.png',
+      img: '/Img/cope.png',
     },
     {
       id: 2,
       title: 'سدان',
-      img: '/img/sedan.png',
+      img: '/Img/sedan.png',
     },
     {
       id: 3,
       title: 'کروک',
-      img: '/img/crok.png',
+      img: '/Img/crok.png',
     },
     {
       id: 4,
       title: 'شاسی بلند',
-      img: '/img/shasi.png',
+      img: '/Img/shasi.png',
     },
     {
       id: 5,
       title: 'اسپرت',
-      img: '/img/sport.png',
+      img: '/Img/sport.png',
     },
   ];
   return (
