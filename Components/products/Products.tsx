@@ -94,7 +94,7 @@ export default function Products() {
           </Link>
         </div>
       </div>
-      <div className='gap-8 grid grid-cols-12 mt-8 px-[6%] w-full'>
+      <div className='gap-y-8 xl:gap-y-0 grid grid-cols-12 mt-8 md:px-[6%] w-full'>
         {Products.map((item) => (
           <div className='col-span-12 sm:col-span-10 md:col-span-6 xl:col-span-4 sm:col-start-2 bg-[#FFFFFF] shadow p-4 border border-[#D7D7D7] rounded-2xl'>
             <figure className='flex justify-center p-2 border border-[#F3F3F3] rounded-[12px] w-full'>
