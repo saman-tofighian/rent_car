@@ -36,7 +36,11 @@ export default function Login() {
               />
             </div>
             <div className='flex items-center text-[12px] text-gray-600'>
-              <input type='checkbox' className='ml-2 w-4 h-4' />
+              <input
+                type='checkbox'
+                className='ml-2 w-4 h-4'
+                onChange={change}
+              />
               <label>
                 با ورود و ثبت‌نام در سایت،{' '}
                 <a href='#' className='font-medium text-[#0075FF]'>
