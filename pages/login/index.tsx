@@ -1,5 +1,12 @@
 import Image from 'next/image';
+import { useState } from 'react';
 export default function Login() {
+  const [activBtn, setActiveBtn] = useState(false);
+
+  const changeCheckBox = () => {
+    setActiveBtn((prev) => !prev);
+  };
+
   return (
     <section className='flex justify-center items-center bg-[#d7d7d7] px-4 md:px-[8%] min-h-screen'>
       <div className='grid grid-cols-1 md:grid-cols-9 bg-white shadow-lg rounded-2xl w-full max-w-[900px] min-h-[520px] overflow-hidden'>
@@ -39,7 +46,7 @@ export default function Login() {
               <input
                 type='checkbox'
                 className='ml-2 w-4 h-4'
-                onChange={change}
+                onChange={changeCheckBox}
               />
               <label>
                 با ورود و ثبت‌نام در سایت،{' '}
@@ -51,8 +58,12 @@ export default function Login() {
             </div>
             <button
               type='submit'
-              className='bg-[#EDEDED] py-3 rounded-xl w-full font-semibold text-[#9C9C9C] text-sm'
-              disabled
+              className={`py-3 rounded-xl w-full font-semibold text-sm transition-colors duration-200 ${
+                activBtn
+                  ? 'bg-[#0075FF] text-white cursor-pointer'
+                  : 'bg-[#EDEDED] text-[#9C9C9C] cursor-not-allowed'
+              }`}
+              disabled={!activBtn}
             >
               تایید و ادامه
             </button>
