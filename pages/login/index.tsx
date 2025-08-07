@@ -2,11 +2,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 export default function Login() {
   const [activBtn, setActiveBtn] = useState(false);
-
   const changeCheckBox = () => {
     setActiveBtn((prev) => !prev);
   };
-
   return (
     <section className='flex justify-center items-center bg-[#d7d7d7] px-4 md:px-[8%] min-h-screen'>
       <div className='grid grid-cols-1 md:grid-cols-9 bg-white shadow-lg rounded-2xl w-full max-w-[900px] min-h-[520px] overflow-hidden'>
