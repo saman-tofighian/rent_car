@@ -10,7 +10,6 @@ import Products from '@/Components/products/Products';
 import Questions from '@/Components/Q&A/Q&A';
 import Reservation from '@/Components/Reservation/Reservation';
 import Head from 'next/head';
-
 export default function Home() {
   return (
     <>
