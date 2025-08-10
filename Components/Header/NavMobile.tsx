@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { MdMenu } from 'react-icons/md';
-
 interface NavItem {
   href: string;
   label: string;
