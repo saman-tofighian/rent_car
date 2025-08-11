@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { LuLogIn } from 'react-icons/lu';
-
+import { LuLogIn } from 'react-icons/lu'
 export default function NavLeft() {
   return (
     <div className='flex justify-center sm:justify-end xl:justify-center items-center order-3 xl:order-3 col-span-5 xl:col-span-2 h-full'>
