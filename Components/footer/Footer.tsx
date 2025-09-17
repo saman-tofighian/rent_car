@@ -5,7 +5,7 @@ import { LiaPhoneVolumeSolid } from 'react-icons/lia';
 export default function Footer() {
   return (
     <section className='my-8 px-[8%] w-full'>
-      <div className='gap-y-8 grid grid-cols-1 md:grid-cols-12 bg-[#1E1E1EE5] px-6 md:px-12 py-10 md:py-14 rounded-2xl w-full'>
+      <div className='gap-y-8 grid grid-cols-1 md:grid-cols-12 bg-[#000000ac] bg-[url(/Img/footerbg.png)] bg-blend-multiply bg-cover bg-no-repeat px-6 md:px-12 py-10 md:py-14 rounded-2xl w-full'>
         <div className='flex lg:flex-row flex-col justify-around items-start lg:items-center gap-6 col-span-12 p-4 border border-[#868686] rounded-2xl'>
           <div className='flex items-center gap-x-4'>
             <span className='flex justify-center items-center p-3 border border-white rounded-[12px]'>
