@@ -128,14 +128,14 @@ export default function AboutUs() {
             <img
               src='/Img/about.png'
               alt='about-section'
-              className='w-full h-[450px] object-cover'
+              className='w-full h-[696px] md:h-[550px] object-cover'
             />
             {/* لایه تیره */}
-            <div className='absolute inset-0 bg-black/50'></div>
+            <div className='absolute inset-0 bg-[#00000099]'></div>
 
             {/* متن روی عکس */}
-            <div className='absolute inset-0 flex flex-col justify-center items-center px-6 text-white text-center'>
-              <h2 className='mb-4 font-bold text-2xl md:text-3xl'>
+            <div className='absolute inset-0 flex flex-col md:justify-center items-center px-6 text-white text-center'>
+              <h2 className='mt-20 md:mt-0 mb-4 font-bold text-2xl md:text-3xl'>
                 شبکه امدادری و تعمیرات خودرو
               </h2>
               <p className='max-w-2xl text-sm md:text-base leading-7'>
@@ -150,16 +150,16 @@ export default function AboutUs() {
           </div>
 
           {/* کارت‌ها پایین عکس */}
-          <div className='bottom-0 left-1/2 absolute px-4 sm:px-6 w-full max-w-5xl translate-x-[-50%] translate-y-1/2'>
+          <div className='bottom-[50px] md:bottom-0 left-1/2 absolute px-4 sm:px-6 w-full max-w-5xl translate-x-[-50%] md:translate-y-1/2'>
             <div className='gap-6 grid grid-cols-1 md:grid-cols-2'>
               {/* کارت اول */}
-              <div className='bg-white shadow-xl px-8 py-6 rounded-2xl text-[#333]'>
+              <div className='bg-white shadow-xl px-4 py-2 rounded-2xl text-[#333]'>
                 <div className='flex justify-center w-full'>
                   <h3 className='mb-2 border-[#FDB713] border-b w-fit font-bold text-lg md:text-xl'>
                     خدمات شبانه روزی
                   </h3>
                 </div>
-                <p className='text-[#555] text-sm md:text-base leading-6'>
+                <p className='font-normal text-[#0C0C0C] text-[12px] md:text-base leading-6'>
                   اتورنت در تــمامی بخش‌های اصـلی از جـمله مرکز تماس مشتریان و
                   خدمات امدادی بصورت دائمی تمامی روزهای هفته و 24 ساعته فعال
                   است، بیشتر ایستگاه های کاری تحویل خودرو نیز بصورت 24 ساعته
@@ -168,13 +168,13 @@ export default function AboutUs() {
                 </p>
               </div>
               {/* کارت دوم */}
-              <div className='bg-white shadow-xl px-8 py-6 rounded-2xl text-[#333]'>
+              <div className='bg-white shadow-xl px-4 py-2 rounded-2xl text-[#333]'>
                 <div className='flex justify-center w-full'>
                   <h3 className='mb-2 border-[#FDB713] border-b w-fit font-bold text-lg md:text-xl'>
                     ارائه خودرو جایگزین
                   </h3>
                 </div>
-                <p className='text-[#555] text-sm md:text-base leading-6'>
+                <p className='font-normal text-[#0C0C0C] text-[12px] md:text-base leading-6'>
                   با توجه به تعداد خودرو های موجود در اتورنت امکان ارائه خودروی
                   جایگزین در خرابی ها و تعمیرات طولانی مدت که بصورت امدادی برطرف
                   نگردند ، در هر نقطه از ایران میسر می باشد.
