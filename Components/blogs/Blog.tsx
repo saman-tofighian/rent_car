@@ -70,7 +70,7 @@ export default function Blog() {
       </div>
       <div className='hidden xl:flex justify-end mt-3.5 px-[6%] w-full'>
         <Link
-          href='/blogs'
+          href='/blog'
           className='flex justify-center items-center gap-x-2.5 hover:gap-x-4 ml-12 font-bold text-[#194BF0] duration-500 ease-linear'
         >
           <span className='mt-1.5'>مشاهده همه</span>

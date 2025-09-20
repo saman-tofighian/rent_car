@@ -131,7 +131,7 @@ export default function AboutUs() {
               className='w-full h-[696px] md:h-[550px] object-cover'
             />
             {/* لایه تیره */}
-            <div className='absolute inset-0 bg-[#00000099]'></div>
+            <div className='absolute inset-0 bg-[#000000c4]'></div>
 
             {/* متن روی عکس */}
             <div className='absolute inset-0 flex flex-col md:justify-center items-center px-6 text-white text-center'>
