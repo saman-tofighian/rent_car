@@ -23,7 +23,7 @@ export default function Rules() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             مدارک لازم
           </h2>
-          {/* خط کامل + رنگی */}
+
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[3px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] rounded-2xl w-10 h-[3px]'></span>
           </div>
@@ -47,7 +47,7 @@ export default function Rules() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             مدارک لازم برای اجاره خودرو افراد خارجی
           </h2>
-          {/* خط کامل + رنگی */}
+
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[3px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] rounded-2xl w-10 h-[3px]'></span>
           </div>
@@ -71,7 +71,7 @@ export default function Rules() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             مدارک اجاره خودرو برای شرکت‌ها
           </h2>
-          {/* خط کامل + رنگی */}
+
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[3px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] rounded-2xl w-10 h-[3px]'></span>
           </div>
@@ -87,7 +87,7 @@ export default function Rules() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             انواع بیمه برای انواع خودرو
           </h2>
-          {/* خط کامل + رنگی */}
+
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[3px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] rounded-2xl w-10 h-[3px]'></span>
           </div>
@@ -106,7 +106,6 @@ export default function Rules() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             بیمه پایه
           </h2>
-          {/* خط کامل + رنگی */}
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[3px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] rounded-2xl w-10 h-[3px]'></span>
           </div>
@@ -124,7 +123,7 @@ export default function Rules() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             بیمه کامل
           </h2>
-          {/* خط کامل + رنگی */}
+
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[3px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] rounded-2xl w-10 h-[3px]'></span>
           </div>

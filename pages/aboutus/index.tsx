@@ -55,7 +55,6 @@ export default function AboutUs() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             معرفی اتورنت
           </h2>
-          {/* خط کامل + رنگی */}
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[2px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] w-10 h-[2px]'></span>
           </div>
@@ -100,7 +99,7 @@ export default function AboutUs() {
           <h2 className='inline-block relative font-bold text-[#494949] text-2xl'>
             شبکه نمایندگان و شرکتهای اجاره خودروی همکار
           </h2>
-          {/* خط کامل + رنگی */}
+
           <div className='relative bg-[#E5E5E5] mt-3 w-full h-[2px]'>
             <span className='top-0 right-0 absolute bg-[#FDB713] w-10 h-[2px]'></span>
           </div>
