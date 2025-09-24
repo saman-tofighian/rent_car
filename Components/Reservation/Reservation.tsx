@@ -55,7 +55,7 @@ export default function Reservation() {
         </div>
         <div className='relative flex justify-center items-center'>
           <Image
-            src='/img/reservation.png'
+            src='/Img/reservation.png'
             alt='Car'
             width={372}
             height={726}
