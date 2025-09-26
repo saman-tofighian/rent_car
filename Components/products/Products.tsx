@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
 
 interface IProducts {
@@ -62,6 +63,7 @@ export default function Products() {
       monthlyPrice: 165000000,
     },
   ];
+  const [activeFilter, setActiveFilter] = useState('popular');
   return (
     <section className='my-24 px-8 w-full'>
       <div className='w-full text-center'>
@@ -74,7 +76,14 @@ export default function Products() {
       </div>
       <div className='grid grid-cols-12 mt-7 w-full'>
         <div className='flex justify-center xl:justify-end items-center gap-x-3.5 col-span-12 xl:col-span-7'>
-          <button className='bg-[#194BF0] px-4 py-2 rounded-[8px] text-white cursor-pointer'>
+          <button
+            onClick={() => setActiveFilter('popular')}
+            className={`px-4 py-2 rounded-[8px] cursor-pointer ${
+              activeFilter === 'popular'
+                ? 'bg-[#194BF0] text-white'
+                : 'bg-transparent border border-[#194BF0] text-[#194BF0]'
+            }`}
+          >
             پرطرفدار
           </button>
           <button className='bg-transparent px-4 py-2 border border-[#194BF0] rounded-[8px] text-[#194BF0] cursor-pointer'>
@@ -96,7 +105,10 @@ export default function Products() {
       </div>
       <div className='gap-9 grid grid-cols-12 mt-8 md:px-[6%] w-full'>
         {Products.map((item) => (
-          <div className='col-span-12 sm:col-span-10 md:col-span-6 xl:col-span-4 sm:col-start-2 bg-[#FFFFFF] shadow p-4 border border-[#D7D7D7] rounded-2xl'>
+          <div
+            key={item.id}
+            className='col-span-12 sm:col-span-10 md:col-span-6 xl:col-span-4 sm:col-start-2 bg-[#FFFFFF] shadow p-4 border border-[#D7D7D7] rounded-2xl'
+          >
             <figure className='flex justify-center p-2 border border-[#F3F3F3] rounded-[12px] w-full'>
               <Image
                 src={item.image}
@@ -138,13 +150,15 @@ export default function Products() {
             <span className='block bg-[#D7D7D7] my-3.5 w-full h-[1px]'></span>
             <div className='flex justify-between items-center my-2.5 px-1.5 w-full'>
               <span className='text-[#212121] text-[14px]'>مبلغ ضمانت : </span>
-              <span className='font-extrabold text-[#212121] text-[12px]'>
-                80 میلیون تومان
-              </span>
+              {item.dailyPrice.toLocaleString()}{' '}
+              <span className='text-xs'>تومان</span>
             </div>
-            <button className='flex justify-center items-center bg-[#194BF0] px-4 py-2 rounded-[8px] w-full text-white cursor-pointer'>
+            <Link
+              href={`/products/${item.id}`}
+              className='flex justify-center items-center bg-[#194BF0] px-4 py-2 rounded-[8px] w-full text-white cursor-pointer'
+            >
               درخواست رزرو
-            </button>
+            </Link>
           </div>
         ))}
       </div>
