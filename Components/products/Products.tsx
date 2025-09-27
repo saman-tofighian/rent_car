@@ -1,79 +1,39 @@
+import { ProductData } from '@/Data';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
 
-interface IProducts {
-  id: number;
-  image: string;
-  title: string;
-  model: string;
-  dailyPrice: number;
-  monthlyPrice: number;
-}
-
 export default function Products() {
-  const Products: IProducts[] = [
-    {
-      id: 1,
-      image: '/Img/p1.jpg',
-      title: 'اجاره بنز E350 سدان',
-      model: '2016',
-      dailyPrice: 8500000,
-      monthlyPrice: 255000000,
-    },
-    {
-      id: 2,
-      image: '/Img/p2.jpg',
-      title: 'اجاره تویوتا لندکروز در تهران 2013',
-      model: '2018',
-      dailyPrice: 6000000,
-      monthlyPrice: 180000000,
-    },
-    {
-      id: 3,
-      image: '/Img/p3.jpg',
-      title: 'اجاره جنسیس کوپه',
-      model: '2020',
-      dailyPrice: 7000000,
-      monthlyPrice: 210000000,
-    },
-    {
-      id: 4,
-      image: '/Img/p4.jpg',
-      title: 'اجاره بی ام و 528',
-      model: '2019',
-      dailyPrice: 7500000,
-      monthlyPrice: 225000000,
-    },
-    {
-      id: 5,
-      image: '/Img/p5.jpg',
-      title: 'اجاره هیوندای توسان 2014',
-      model: '2021',
-      dailyPrice: 5000000,
-      monthlyPrice: 150000000,
-    },
-    {
-      id: 6,
-      image: '/Img/p6.jpg',
-      title: 'اجاره مازراتی گرن توریسمو',
-      model: '2017',
-      dailyPrice: 5500000,
-      monthlyPrice: 165000000,
-    },
-  ];
-  const [activeFilter, setActiveFilter] = useState('popular');
+  const [activeFilter, setActiveFilter] = useState<
+    'popular' | 'new' | 'suggested'
+  >('popular');
+
+  const filteredProducts = useMemo(() => {
+    switch (activeFilter) {
+      case 'new':
+        return [...ProductData].sort(
+          (a, b) => Number(b.model) - Number(a.model)
+        );
+      case 'suggested':
+        return ProductData.filter((item) => item.dailyPrice <= 7000000);
+      case 'popular':
+      default:
+        return ProductData.slice(0, 6);
+    }
+  }, [activeFilter]);
+
   return (
     <section className='my-24 px-8 w-full'>
       <div className='w-full text-center'>
         <h3 className='font-extralight text-[#5E5E5E] text-[20px]'>
-          مشاهده موجودی خودروها{' '}
+          مشاهده موجودی خودروها
         </h3>
         <p className='mt-2.5 text-[#353535] text-[34px]'>
           رزرو خودرو در <strong className='text-[#D79C10]'>اُتـــورِنت</strong>
         </p>
       </div>
+
       <div className='grid grid-cols-12 mt-7 w-full'>
         <div className='flex justify-center xl:justify-end items-center gap-x-3.5 col-span-12 xl:col-span-7'>
           <button
@@ -86,10 +46,24 @@ export default function Products() {
           >
             پرطرفدار
           </button>
-          <button className='bg-transparent px-4 py-2 border border-[#194BF0] rounded-[8px] text-[#194BF0] cursor-pointer'>
+          <button
+            onClick={() => setActiveFilter('new')}
+            className={`px-4 py-2 rounded-[8px] cursor-pointer ${
+              activeFilter === 'new'
+                ? 'bg-[#194BF0] text-white'
+                : 'bg-transparent border border-[#194BF0] text-[#194BF0]'
+            }`}
+          >
             جدیدترین
           </button>
-          <button className='bg-transparent px-4 py-2 border border-[#194BF0] rounded-[8px] text-[#194BF0] cursor-pointer'>
+          <button
+            onClick={() => setActiveFilter('suggested')}
+            className={`px-4 py-2 rounded-[8px] cursor-pointer ${
+              activeFilter === 'suggested'
+                ? 'bg-[#194BF0] text-white'
+                : 'bg-transparent border border-[#194BF0] text-[#194BF0]'
+            }`}
+          >
             پیشنهادی
           </button>
         </div>
@@ -103,12 +77,13 @@ export default function Products() {
           </Link>
         </div>
       </div>
-      <div className='gap-9 grid grid-cols-12 mt-8 md:px-[6%] w-full'>
-        {Products.map((item) => (
+      <div className='gap-y-9 md:gap-x-9 grid grid-cols-12 mt-8 md:px-[6%] w-full'>
+        {filteredProducts.map((item) => (
           <div
             key={item.id}
             className='col-span-12 sm:col-span-10 md:col-span-6 xl:col-span-4 sm:col-start-2 bg-[#FFFFFF] shadow p-4 border border-[#D7D7D7] rounded-2xl'
           >
+            {/* تصویر */}
             <figure className='flex justify-center p-2 border border-[#F3F3F3] rounded-[12px] w-full'>
               <Image
                 src={item.image}
@@ -117,6 +92,8 @@ export default function Products() {
                 height={225}
               />
             </figure>
+
+            {/* اطلاعات ماشین */}
             <div className='mt-3.5 w-full'>
               <h4 className='font-bold text-[#0C0C0C] text-[16px]'>
                 {item.title}
@@ -125,34 +102,44 @@ export default function Products() {
                 مدل : {item.model}
               </p>
             </div>
+
+            {/* قیمت روزانه */}
             <div className='flex justify-between items-center bg-[#F3F3F3] mt-2.5 px-3 py-2 rounded-[8px] w-full'>
               <span className='flex justify-center items-center font-bold text-[#0C0C0C] text-[16px]'>
                 از ۱ تا 30 روز:
                 <span className='mt-1 mr-2 text-[#194BF0] text-[14px]'>
-                  {item.dailyPrice.toLocaleString()}
+                  {item.dailyPrice.toLocaleString('fa-ir')}
                 </span>
               </span>
               <span className='font-normal text-[#868686] text-[12px]'>
                 روزانه
               </span>
             </div>
+
+            {/* قیمت ماهانه */}
             <div className='flex justify-between items-center bg-[#F3F3F3] mt-2.5 px-3 py-2 rounded-[8px] w-full'>
               <span className='flex justify-center items-center font-bold text-[#0C0C0C] text-[16px]'>
                 از ۱ تا 30 روز:
                 <span className='mt-1 mr-2 text-[#194BF0] text-[14px]'>
-                  {item.monthlyPrice.toLocaleString()}
+                  {item.monthlyPrice.toLocaleString('fa-ir')}
                 </span>
               </span>
               <span className='font-normal text-[#868686] text-[12px]'>
                 ماهانه
               </span>
             </div>
+
+            {/* ضمانت */}
             <span className='block bg-[#D7D7D7] my-3.5 w-full h-[1px]'></span>
             <div className='flex justify-between items-center my-2.5 px-1.5 w-full'>
               <span className='text-[#212121] text-[14px]'>مبلغ ضمانت : </span>
-              {item.dailyPrice.toLocaleString()}{' '}
+              <span className='font-medium text-[#0C0C0C]'>
+                {item.deposit.toLocaleString('fa-ir')}
+              </span>
               <span className='text-xs'>تومان</span>
             </div>
+
+            {/* دکمه رزرو */}
             <Link
               href={`/products/${item.id}`}
               className='flex justify-center items-center bg-[#194BF0] px-4 py-2 rounded-[8px] w-full text-white cursor-pointer'

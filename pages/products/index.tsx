@@ -1,68 +1,39 @@
 import Footer from '@/Components/footer/Footer';
 import Header from '@/Components/Header/Header';
+import { ProductData } from '@/Data';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 
-interface IProducts {
-  id: number;
-  image: string;
-  title: string;
-  model: string;
-  dailyPrice: number;
-  monthlyPrice: number;
-}
-
 export default function ProductsPage() {
-  const Products: IProducts[] = [
-    {
-      id: 1,
-      image: '/Img/p1.jpg',
-      title: 'اجاره بنز E350 سدان',
-      model: '2016',
-      dailyPrice: 8500000,
-      monthlyPrice: 255000000,
-    },
-    {
-      id: 2,
-      image: '/Img/p2.jpg',
-      title: 'اجاره تویوتا لندکروز در تهران',
-      model: '2018',
-      dailyPrice: 6000000,
-      monthlyPrice: 180000000,
-    },
-    {
-      id: 3,
-      image: '/Img/p3.jpg',
-      title: 'اجاره جنسیس کوپه',
-      model: '2020',
-      dailyPrice: 7000000,
-      monthlyPrice: 210000000,
-    },
-    {
-      id: 4,
-      image: '/Img/p4.jpg',
-      title: 'اجاره بی ام و 528',
-      model: '2019',
-      dailyPrice: 7500000,
-      monthlyPrice: 225000000,
-    },
-    {
-      id: 5,
-      image: '/Img/p5.jpg',
-      title: 'اجاره هیوندای توسان 2014',
-      model: '2021',
-      dailyPrice: 5000000,
-      monthlyPrice: 150000000,
-    },
-    {
-      id: 6,
-      image: '/Img/p6.jpg',
-      title: 'اجاره مازراتی گرن توریسمو',
-      model: '2017',
-      dailyPrice: 5500000,
-      monthlyPrice: 165000000,
-    },
-  ];
+  const Products = ProductData;
+
+  // state های فیلتر
+  const [price, setPrice] = useState<number>(100000000);
+  const [brands, setBrands] = useState<string[]>([]);
+  const [types, setTypes] = useState<string[]>([]);
+
+  // toggle برای checkbox ها
+  const toggleBrand = (brand: string) => {
+    setBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+    );
+  };
+
+  const toggleType = (type: string) => {
+    setTypes((prev) =>
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    );
+  };
+
+  // اعمال فیلتر
+  const filteredProducts = Products.filter((item) => {
+    const byPrice = item.dailyPrice <= price;
+    const byBrand = brands.length > 0 ? brands.includes(item.brand) : true;
+    const byType = types.length > 0 ? types.includes(item.type) : true;
+    return byPrice && byBrand && byType;
+  });
 
   return (
     <section className='w-full'>
@@ -95,67 +66,78 @@ export default function ProductsPage() {
 
           {/* لیست محصولات */}
           <div className='gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-            {Products.map((item) => (
-              <div
-                key={item.id}
-                className='bg-white shadow-md p-4 border border-[#EDEDED] rounded-2xl'
-              >
-                <figure className='flex justify-center p-2 border border-[#F3F3F3] rounded-[12px]'>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={300}
-                    height={200}
-                  />
-                </figure>
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((item) => (
+                <div
+                  key={item.id}
+                  className='bg-white shadow-md p-4 border border-[#EDEDED] rounded-2xl'
+                >
+                  <figure className='flex justify-center p-2 border border-[#F3F3F3] rounded-[12px]'>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={300}
+                      height={200}
+                    />
+                  </figure>
 
-                <div className='mt-3.5'>
-                  <h4 className='font-bold text-[#0C0C0C] text-[16px]'>
-                    {item.title}
-                  </h4>
-                  <p className='mt-1.5 font-normal text-[#868686] text-[12px]'>
-                    مدل : {item.model}
-                  </p>
-                </div>
+                  <div className='mt-3.5'>
+                    <h4 className='font-bold text-[#0C0C0C] text-[16px]'>
+                      {item.title}
+                    </h4>
+                    <p className='mt-1.5 font-normal text-[#868686] text-[12px]'>
+                      مدل : {item.model}
+                    </p>
+                  </div>
 
-                {/* قیمت روزانه */}
-                <div className='flex justify-between items-center bg-[#F3F3F3] mt-3 px-3 py-2 rounded-lg'>
-                  <span className='font-bold text-[#0C0C0C] text-[15px]'>
-                    {item.dailyPrice.toLocaleString()}
-                    <span className='mr-1 text-[#194BF0] text-[13px]'>
-                      تومان
+                  {/* قیمت روزانه */}
+                  <div className='flex justify-between items-center bg-[#F3F3F3] mt-3 px-3 py-2 rounded-lg'>
+                    <span className='font-bold text-[#0C0C0C] text-[15px]'>
+                      {item.dailyPrice.toLocaleString('fa-ir')}
+                      <span className='mr-1 text-[#194BF0] text-[13px]'>
+                        تومان
+                      </span>
                     </span>
-                  </span>
-                  <span className='text-[#868686] text-[12px]'>روزانه</span>
-                </div>
+                    <span className='text-[#868686] text-[12px]'>روزانه</span>
+                  </div>
 
-                {/* قیمت ماهانه */}
-                <div className='flex justify-between items-center bg-[#F3F3F3] mt-2 px-3 py-2 rounded-lg'>
-                  <span className='font-bold text-[#0C0C0C] text-[15px]'>
-                    {item.monthlyPrice.toLocaleString()}
-                    <span className='mr-1 text-[#194BF0] text-[13px]'>
-                      تومان
+                  {/* قیمت ماهانه */}
+                  <div className='flex justify-between items-center bg-[#F3F3F3] mt-2 px-3 py-2 rounded-lg'>
+                    <span className='font-bold text-[#0C0C0C] text-[15px]'>
+                      {item.monthlyPrice.toLocaleString('fa-ir')}
+                      <span className='mr-1 text-[#194BF0] text-[13px]'>
+                        تومان
+                      </span>
                     </span>
-                  </span>
-                  <span className='text-[#868686] text-[12px]'>ماهانه</span>
+                    <span className='text-[#868686] text-[12px]'>ماهانه</span>
+                  </div>
+
+                  {/* خط جداکننده */}
+                  <span className='block bg-[#EDEDED] my-3 h-[1px]'></span>
+
+                  {/* ضمانت */}
+                  <div className='flex justify-between items-center mb-3'>
+                    <span className='text-[#212121] text-[14px]'>
+                      مبلغ ضمانت
+                    </span>
+                    <span className='font-bold text-[#212121] text-[13px]'>
+                      {item.deposit.toLocaleString('fa-IR')} تومان
+                    </span>
+                  </div>
+
+                  <Link
+                    href={`/products/${item.id}`}
+                    className='flex justify-center items-center bg-[#194BF0] hover:bg-blue-700 py-2.5 rounded-lg w-full font-medium text-white transition cursor-pointer'
+                  >
+                    درخواست رزرو
+                  </Link>
                 </div>
-
-                {/* خط جداکننده */}
-                <span className='block bg-[#EDEDED] my-3 h-[1px]'></span>
-
-                {/* ضمانت */}
-                <div className='flex justify-between items-center mb-3'>
-                  <span className='text-[#212121] text-[14px]'>مبلغ ضمانت</span>
-                  <span className='font-bold text-[#212121] text-[13px]'>
-                    80 میلیون تومان
-                  </span>
-                </div>
-
-                <button className='bg-[#194BF0] hover:bg-blue-700 py-2.5 rounded-lg w-full font-medium text-white transition cursor-pointer'>
-                  درخواست رزرو
-                </button>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p className='col-span-3 text-gray-500 text-center'>
+                محصولی یافت نشد.
+              </p>
+            )}
           </div>
         </div>
 
@@ -166,14 +148,20 @@ export default function ProductsPage() {
           {/* قیمت */}
           <div className='mb-6'>
             <label className='block mb-2 text-[#212121] text-sm'>
-              قیمت اجاره خودرو
+              قیمت اجاره خودرو (حداکثر روزانه)
             </label>
             <input
               type='range'
               min='1000000'
               max='100000000'
+              step='1000000'
+              value={price}
+              onChange={(e) => setPrice(Number(e.target.value))}
               className='w-full'
             />
+            <p className='mt-1 text-gray-500 text-xs'>
+              حداکثر: {price.toLocaleString()} تومان
+            </p>
           </div>
 
           {/* برند */}
@@ -181,19 +169,19 @@ export default function ProductsPage() {
             <label className='block mb-2 text-[#212121] text-sm'>
               برند خودرو
             </label>
-            <ul className='flex flex-col gap-2'>
-              <li>
-                <input type='checkbox' /> بنز
-              </li>
-              <li>
-                <input type='checkbox' /> بی ام و
-              </li>
-              <li>
-                <input type='checkbox' /> هیوندای
-              </li>
-              <li>
-                <input type='checkbox' /> تویوتا
-              </li>
+            <ul className='flex flex-col gap-2 text-[#212121] text-sm'>
+              {['بنز', 'بی ام و', 'هیوندای', 'تویوتا', 'مازراتی'].map(
+                (brand) => (
+                  <li key={brand} className='flex items-center gap-2'>
+                    <input
+                      type='checkbox'
+                      checked={brands.includes(brand)}
+                      onChange={() => toggleBrand(brand)}
+                    />
+                    {brand}
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -202,16 +190,17 @@ export default function ProductsPage() {
             <label className='block mb-2 text-[#212121] text-sm'>
               نوع خودرو
             </label>
-            <ul className='flex flex-col gap-2'>
-              <li>
-                <input type='checkbox' /> شاسی بلند
-              </li>
-              <li>
-                <input type='checkbox' /> اسپرت
-              </li>
-              <li>
-                <input type='checkbox' /> سدان
-              </li>
+            <ul className='flex flex-col gap-2 text-[#212121] text-sm'>
+              {['شاسی بلند', 'اسپرت', 'سدان'].map((type) => (
+                <li key={type} className='flex items-center gap-2'>
+                  <input
+                    type='checkbox'
+                    checked={types.includes(type)}
+                    onChange={() => toggleType(type)}
+                  />
+                  {type}
+                </li>
+              ))}
             </ul>
           </div>
         </aside>

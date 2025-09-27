@@ -1,6 +1,8 @@
 import Header from '@/Components/Header/Header';
 import Footer from '@/Components/footer/Footer';
+import { ProductData } from '@/Data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { BsArrowLeft, BsStarFill } from 'react-icons/bs';
@@ -70,9 +72,12 @@ const SimilarProductCard = ({ item }: { item: IProducts }) => {
           {item.deposit.toLocaleString('fa-IR')} تومان
         </span>
       </div>
-      <button className='bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg w-full font-extrabold text-white transition-colors cursor-pointer'>
+      <Link
+        href={`/products/${item.id}`}
+        className='flex justify-center items-center bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg w-full font-extrabold text-white transition-colors cursor-pointer'
+      >
         درخواست رزرو
-      </button>
+      </Link>
     </div>
   );
 };
@@ -81,45 +86,9 @@ const SimilarProductCard = ({ item }: { item: IProducts }) => {
 export default function ProductById() {
   const { id } = useRouter().query;
 
-  // Mock products
-  const Products: IProducts[] = [
-    {
-      id: 1,
-      image: '/Img/p1.jpg',
-      gallery: ['/Img/p1.jpg', '/Img/p1-1.jpg', '/Img/p1-2.jpg'],
-      title: 'اجاره بنز E350 سدان',
-      model: '2016',
-      dailyPrice: 8500000,
-      monthlyPrice: 255000000,
-      deposit: 80000000,
-      description:
-        'اجاره بنز E350 یکی از محبوب‌ترین خودروهای لوکس در تهران است. مناسب مراسم‌ها و سفرهای روزانه.',
-    },
-    {
-      id: 2,
-      image: '/Img/p2.jpg',
-      gallery: ['/Img/p2.jpg'],
-      title: 'اجاره تویوتا لندکروز',
-      model: '2018',
-      dailyPrice: 6000000,
-      monthlyPrice: 180000000,
-      deposit: 70000000,
-      description: 'شاسی‌بلند قدرتمند برای سفرهای خانوادگی و مسیرهای سخت.',
-    },
-    {
-      id: 3,
-      image: '/Img/p3.jpg',
-      gallery: ['/Img/p3.jpg'],
-      title: 'اجاره جنسیس کوپه',
-      model: '2020',
-      dailyPrice: 7000000,
-      monthlyPrice: 210000000,
-      deposit: 60000000,
-      description: 'خودروی اسپرت و شیک مناسب افراد خاص‌پسند.',
-    },
-  ];
+  const Products = ProductData;
 
-  // Default S500 Benz (placeholder if no ID found)
+  // Default product if no ID found
   const benzSClass: IProducts = {
     id: 99,
     image: '/Img/benz-s-class-main.jpg',
@@ -155,16 +124,16 @@ export default function ProductById() {
 
   // ==== Render ====
   return (
-    <section className='bg-gray-50 w-full min-h-screen'>
+    <section className='bg-gray-50 w-full'>
       <Header />
 
-      {/* Hero Section */}
-      <div className='relative bg-[url(/Img/product-page-image.jpg)] bg-cover bg-no-repeat h-[60vh]'>
-        <div className='absolute inset-0 bg-black/60'></div>
+      {/* Hero */}
+      <div className='relative bg-[url(/Img/product-page-image.jpg)] bg-cover bg-no-repeat xl:bg-center bg-right h-[60vh]'>
+        <div className='absolute inset-0 bg-[#00000099]'></div>
         <div className='z-10 relative flex flex-col justify-center items-center h-full text-white'>
-          <h1 className='font-bold text-yellow-400 text-5xl'>اجاره خودرو</h1>
-          <span className='flex items-center gap-x-2 mt-3 text-gray-300 text-sm'>
-            اتورنت <BsArrowLeft /> لیست خودروهای اجاره‌ای
+          <h1 className='font-bold text-[#FDB713] text-5xl'>اجاره خودرو</h1>
+          <span className='flex justify-center items-center gap-x-2.5 font-normal text-[#868686] text-[14px]'>
+            اتورنت <BsArrowLeft /> لیست خودروهای اجاره ای
           </span>
         </div>
       </div>
@@ -294,7 +263,7 @@ export default function ProductById() {
                 </div>
                 <span className='text-gray-500'>(۱۴ دیدگاه)</span>
               </div>
-              <button className='hover:bg-blue-600 px-6 py-2 border border-blue-600 rounded-lg font-bold text-blue-600 hover:text-white transition'>
+              <button className='hover:bg-blue-600 px-6 py-2 border border-blue-600 rounded-lg font-bold text-blue-600 hover:text-white transition cursor-pointer'>
                 ثبت نظر جدید
               </button>
             </div>
@@ -370,7 +339,7 @@ export default function ProductById() {
               </div>
             </div>
 
-            <button className='bg-blue-600 hover:bg-blue-700 py-3.5 rounded-xl w-full font-extrabold text-white text-lg transition'>
+            <button className='bg-blue-600 hover:bg-blue-700 py-3.5 rounded-xl w-full font-extrabold text-white text-lg transition cursor-pointer'>
               رزرو خودرو
             </button>
           </div>
@@ -383,7 +352,7 @@ export default function ProductById() {
           🚗 خودروهای مشابه
         </h3>
         <div className='gap-6 grid grid-cols-12'>
-          {Products.map((item) => (
+          {Products.slice(0, 3).map((item) => (
             <SimilarProductCard key={item.id} item={item} />
           ))}
         </div>
