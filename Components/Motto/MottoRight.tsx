@@ -4,7 +4,7 @@ import { IoCarSportOutline } from 'react-icons/io5';
 
 export default function MottoRight() {
   return (
-    <div className='flex flex-col justify-center items-center col-span-12 xl:col-span-7 px-[6%] xl:px-0 h-full text-center'>
+    <div className='flex flex-col md:justify-center items-center col-span-12 xl:col-span-7 mt-40 md:mt-0 px-[6%] xl:px-0 h-full text-center'>
       <h1 className='font-bold text-[#FDB713] text-[37px] xl:text-[44px]'>
         اُتـــو رِنت؛ سریع، آسان و به صرفه
       </h1>
