@@ -48,7 +48,7 @@ export default function Brand() {
     return () => clearInterval(interval);
   }, [slider]);
   return (
-    <section className='mt-[19rem] sm:mt-[16rem] lg:mt-[12rem] mb-14 w-full'>
+    <section className='mt-[26rem] sm:mt-[16rem] lg:mt-[12rem] mb-14 w-full'>
       <div className='keen-slider' ref={sliderRef}>
         {logos.map((logo, idx) => (
           <div

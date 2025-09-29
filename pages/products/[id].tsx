@@ -139,7 +139,7 @@ export default function ProductById() {
       </div>
 
       {/* Content */}
-      <div className='gap-9 grid grid-cols-12 mt-10 px-4 md:px-[8%]'>
+      <div className='gap-y-9 md:gap-x-9 grid grid-cols-12 mt-10 px-8 md:px-[8%]'>
         {/* Main Info */}
         <div className='space-y-8 col-span-12 lg:col-span-8'>
           {/* Title & Actions */}
@@ -347,7 +347,7 @@ export default function ProductById() {
       </div>
 
       {/* Similar Cars */}
-      <div className='mt-16 px-4 md:px-[8%] pb-16 w-full'>
+      <div className='mt-16 px-8 md:px-[8%] pb-16 w-full'>
         <h3 className='mb-6 font-extrabold text-gray-900 text-2xl'>
           🚗 خودروهای مشابه
         </h3>
