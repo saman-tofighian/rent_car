@@ -62,14 +62,14 @@ export default function Reservation() {
             className='block z-10 relative'
           />
           <Image
-            src='/img/line1.png'
+            src='/Img/line1.png'
             alt='خط جاده بالا'
             width={47}
             height={135}
             className='top-[-32px] z-0 absolute'
           />
           <Image
-            src='/img/line2.png'
+            src='/Img/line2.png'
             alt='خط جاده پایین'
             width={47}
             height={244}
